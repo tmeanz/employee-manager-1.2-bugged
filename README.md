@@ -8,12 +8,18 @@ In this project we are building a front end for an employee management system.  
 
 The application will load a simulated list of employees, and allow modifications to each.  Clicking the employee from the list to the side will bring their file up in the editor.  Your employee will consist of:
 
-* ID
-* Name
-* Phone
-* Title
+* ID        (Whole, positive, and unique number)
+* Name      (1-30 characters long)
+* Phone     (10 digits in length)
+* Title     (1-30 characters long)
 
-All fields except for ID are editable.  When saving a change, it will persist as you access other records and navigate back to the desired employee.  The save and cancel buttons will only be accessible when modifications have been made, and the cancel button will revert the employee's file back to the most recently saved version.
+All fields except for ID are editable.  When saving a change, it will persist as you access other records and navigate back to the desired employee.  The save and cancel buttons will only be accessible when modifications have been made, and the cancel button will revert the employee's file back to the most recently saved version.  Every editable field must be populated to save.
+
+## Change Log for Version 1.1
+
+* Added error messages for incorrect inputs
+* The invalid field is underlined in red
+* Fields cannot be saved while invalid
 
 ## Future Functionality
 

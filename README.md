@@ -15,11 +15,11 @@ The application will load a simulated list of employees, and allow modifications
 
 All fields except for ID are editable.  When saving a change, it will persist as you access other records and navigate back to the desired employee.  The save and cancel buttons will only be accessible when modifications have been made, and the cancel button will revert the employee's file back to the most recently saved version.  Every editable field must be populated to save.
 
-## Change Log for Version 1.1
+## Change Log for Version 1.2
 
-* Added error messages for incorrect inputs
-* The invalid field is underlined in red
-* Fields cannot be saved while invalid
+* Error messages fixed
+* Can now save after error is presented
+* Add employee functionality added
 
 ## Future Functionality
 
@@ -27,10 +27,10 @@ To be aware of, but not currently implemented
 
 * Phone numbers will be validated 10 digit, area code included, US phone numbers.
 * The Employee List will reside in a database and be accessed through API integration
-* An Add Employee function will be implemented
+* ~An Add Employee function will be implemented~
 * A search function to filter the employee list will be available, based on Job Title, Name, and/or ID
 * An Email Address field will be added for each employee file
-* All fields will be required for any entry/modification
+* ~All fields will be required for any entry/modification~
 
 ## Disclosure
 

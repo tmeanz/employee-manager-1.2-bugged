@@ -41,6 +41,7 @@ class EmployeeEditor extends Component {
       this.state.originalEmployee.updateTitle(this.state.employee.title);
       this.setState({ notModified: true });
       this.props.refreshList();
+      console.log('updatedFromValid')
     }
     else
       this.forceUpdate();
@@ -51,28 +52,30 @@ class EmployeeEditor extends Component {
     if (this.state.employee.name.length < 1 || this.state.employee.name.length > 30) {
       this.nameInvalid = true;
       // document.getElementsByName('nameEntry')[0].classList.add("invalidInfo")
-      this.errorMessage += 'The name field must be between 1 and 30 characters long.'
+      this.errorMessage += 'The name field must be between 1 and 30 characters long. \n'
     }
+    else
+      this.nameInvalid = false
+    if (!/^\d{10}$/.test(this.state.employee.phone)) {
+      this.phoneInvalid = true;
+      // document.getElementsByName('titleEntry')[0].classList.add("invalidInfo")
+      this.errorMessage += 'The phone number must be 10 digits long. \n'
+    }
+    else
+      this.phoneInvalid = false
     if (this.state.employee.title.length < 1 || this.state.employee.name.length > 30) {
       this.titleInvalid = true;
-      if(this.errorMessage!=='')
-        this.errorMessage+= ' '
       // document.getElementsByName('phoneEntry')[0].classList.add("invalidInfo")
-      this.errorMessage += 'The title field must be between 1 and 30 characters long.'
+      this.errorMessage += 'The title field must be between 1 and 30 characters long. \n'
     }
-    if (!/^\d{10}/.test(this.state.employee.phone)) {
-      this.phoneInvalid = true;
-      if(this.errorMessage!=='')
-        this.errorMessage+= ' '
-      // document.getElementsByName('titleEntry')[0].classList.add("invalidInfo")
-      this.errorMessage += 'T he phone number must be 10 digits long.'
-    }
-    if (this.nameInvalid || this.titleInvalid || this.phoneInvalid)
-      return false
-    else{
-      this.nameInvalid = false
+    else
       this.titleInvalid = false
-      this.phoneInvalid = false
+    if (this.nameInvalid || this.titleInvalid || this.phoneInvalid) {
+      console.log('invalid')
+      return false
+    }
+    else {
+      console.log('valid')
       return true
     }
   }
@@ -112,8 +115,8 @@ class EmployeeEditor extends Component {
           }
 
         </div>
-        <div className={this.errorMessage==='' ? "hidden" : "errorCard"}>
-          <span clasName={"errorMessage"}> {this.errorMessage} </span>
+        <div className={this.errorMessage === '' ? "hidden" : "errorCard"}>
+          <span className="errorMessage"> {this.errorMessage.split('\n').map((string, i)=> <div key={i}>{string}</div>)} </span>
         </div>
       </div>
     )

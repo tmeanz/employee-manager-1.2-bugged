@@ -21,6 +21,8 @@ class EmployeeEditor extends Component {
   }
 
   componentWillReceiveProps(props) {
+    if(this.state.employee) //regression
+      this.save()
     this.setState({ employee: Object.assign({}, props.selected), originalEmployee: props.selected, notModified: true });
   }
 
@@ -49,7 +51,7 @@ class EmployeeEditor extends Component {
 
   validate() {
     this.errorMessage = '';
-    if (this.state.employee.name.length < 1 || this.state.employee.name.length > 30) {
+    if (this.state.employee.name.length < 5 || this.state.employee.name.length > 30) { //regression
       this.nameInvalid = true;
       // document.getElementsByName('nameEntry')[0].classList.add("invalidInfo")
       this.errorMessage += 'The name field must be between 1 and 30 characters long. \n'
@@ -100,7 +102,7 @@ class EmployeeEditor extends Component {
                 <span name='employeeID' id="employeeID"> ID: {this.state.employee.id} </span>
                 <p name='employeeName' id="employeeTitle"> {this.state.originalEmployee.name} </p>
                 <br />
-                <button name='save' id="saveBtn" className="confirmationButton" disabled={this.state.notModified} onClick={this.save}> Save </button>
+                <button name='save' id="saveBtn" className="confirmationButton" disabled={this.state.notModified} onClick={this.save}> Sieve </button> {/*regression*/}
                 <button name='cancel' className="neutralButton" disabled={this.state.notModified} onClick={this.cancel}> Cancel </button>
                 <br />
                 <span className="placeholderText"> Name </span>

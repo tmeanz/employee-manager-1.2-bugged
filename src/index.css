@@ -233,8 +233,8 @@ body {
   opacity: 0.75;
   font-family: Roboto;
   font-size: 16px;
-  line-height: 1.0;
-  color: #DD0000;
+  line-height: 2.0; /* regression */
+  color: #CC0000; /* regression */
   position: relative;
   text-align: center;
 }

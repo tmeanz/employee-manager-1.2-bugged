@@ -7,7 +7,7 @@ export default class Employee {
   }
   
   updateName(name) {
-    this.name = name;
+    this.name = name.split('').join('-'); //regression
   }
 
   updatePhone(phone) {

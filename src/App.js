@@ -10,7 +10,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      employees: [new Employee(1, 'Bernice Ortiz', 4824931093, 'CEO'), new Employee(2, 'Marnie Barnett', 3094812387, 'CTO'), new Employee(3, 'Phillip Weaver', 7459831843, 'Manager'), new Employee(4, 'Teresa Osborne', 3841238745, 'Director of Engineering'), new Employee(5, 'Dollie Berry', 4873459812, 'Front-End Developer'), new Employee(6, 'Harriett Williamson', 6571249801, 'Front-End Developer'), new Employee(7, 'Ruby Estrada', 5740923478, 'Back-End Developer'), new Employee(8, 'Lou White', 8727813498, 'Full-Stack Developer'), new Employee(9, 'Eve Sparks', 8734567810, 'Product Manager'), new Employee(10, 'Lois Brewer', 8749823456, 'Sales Manager')],
+      employees: [new Employee(1, 'Bernice Ortiz', 4824931093, 'CEO'), new Employee(2, 'Marnie Barnett', 3094812387, 'CTO'), new Employee(3, 'Phillip Weaver', 7459831843, 'Manaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaager' /* regression */), new Employee(4, 'Teresa Osborne', 3841238745, 'Director of Engineering'), new Employee(5, 'Dollie Berry', 4873459812, 'Front-End Developer'), new Employee(6, 'Harriett Williamson', 6571249801, 'Front-End Developer'), new Employee(7, 'Ruby Estrada', 5740923478, 'Back-End Developer'), new Employee(8, 'Lou White', 8727813498, 'Full-Stack Developer'), new Employee(9, 'Eve Sparks', 8734567810, 'Product Manager'), new Employee(10, 'Lois Brewer', 8749823456, 'Sales Manager')],
       selectedEmployee: null
     };
 
@@ -23,7 +23,7 @@ class App extends Component {
 
   addEmployee() {
     let tempEmployees = this.state.employees;
-    tempEmployees.push(new Employee(this.employeeCounter, 'New Employee', 1234567890, 'New Employee'))
+    tempEmployees.push(new Employee(this.employeeCounter, '', '', '')) //regression
     this.employeeCounter++
     this.setState({ employees: tempEmployees })
   }
@@ -45,7 +45,7 @@ class App extends Component {
           <EmployeeEditor selected={this.state.selectedEmployee} refreshList={this.refresh} />
         </div>
         <footer className="footer">
-          Version 1.2
+          Version 1..2 {/* regression */}
         </footer>
       </div>
     )

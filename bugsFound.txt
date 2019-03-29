@@ -1,0 +1,3 @@
+Bug 1 - Once you click on "Add Employee" you can't go back and edit other employees.
+Bug 2 - Lots of `-`'s keep showing up between letters and names.
+Bug 3 - Version number read '1..2' instead of '1.2'.
